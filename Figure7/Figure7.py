@@ -199,7 +199,7 @@ def main():
 
     per_mil = "\u2030"
     variables = [
-        ("lg Hg concentration", "lg Hg concentration (ppb)", "(a)"),
+        ("lg Hg concentration", r"$\log_{10}$ Hg concentration (ppb)", "(a)"),
         ("delta202Hg_permil", rf"$\delta^{{202}}$Hg ({per_mil})", "(b)"),
         ("Delta199Hg_permil", rf"$\Delta^{{199}}$Hg ({per_mil})", "(c)"),
         ("Delta200Hg_permil", rf"$\Delta^{{200}}$Hg ({per_mil})", "(d)"),
