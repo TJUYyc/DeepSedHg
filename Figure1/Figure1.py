@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 BASE_DIR = Path(__file__).resolve().parent
-OUTPUT_BASE = "Figure1"
+OUTPUT_BASE = BASE_DIR / "Figure1"
 
 
 FIELD_GROUPS = {
@@ -16,11 +16,13 @@ FIELD_GROUPS = {
         "Publication Time",
         "Reference",
         "DOI",
+        "Data Extraction Source",
         "Data Type",
     ],
     "Sampling location fields": [
         "Longitude",
         "Latitude",
+        "Modern Coordinate Source",
         "Location1",
         "Location2",
         "Section",

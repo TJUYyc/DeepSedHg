@@ -4,11 +4,12 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import statsmodels.api as sm
 
 
 BASE_DIR = Path(__file__).resolve().parent
-DATA_FILE = "Figure8_data.xlsx"
-OUTPUT_FILE = "Figure8.png"
+DATA_FILE = BASE_DIR / "Figure8_data.xlsx"
+OUTPUT_FILE = BASE_DIR / "Figure8.png"
 
 
 AGE_ORDER = ["Precambrian", "Paleozoic", "Mesozoic", "Cenozoic"]
@@ -83,7 +84,7 @@ def add_linear_fit(
     fit_ha="left",
 ):
     sub = df.loc[df[x].notna() & df[y].notna(), [x, y]]
-    if len(sub) < 2:
+    if len(sub) < 3 or sub[x].nunique() < 2:
         return
 
     x0, x1 = ax.get_xlim()
@@ -100,14 +101,17 @@ def add_linear_fit(
         ha=reference_ha,
     )
 
-    slope, intercept = np.polyfit(sub[x], sub[y], 1)
-    yy = slope * xx + intercept
-    r = np.corrcoef(sub[x], sub[y])[0, 1]
-    r_squared = r * r
+    fit = sm.OLS(sub[y], sm.add_constant(sub[[x]])).fit(cov_type="HC3", use_t=False)
+    slope = fit.params[x]
+    slope_se = fit.bse[x]
+    p_value = fit.pvalues[x]
+    p_text = "p < 0.001" if p_value < 0.001 else f"p = {p_value:.3g}"
+    yy = slope * xx + fit.params["const"]
     ax.plot(xx, yy, ls="--", lw=0.95, color="#4F4F4F", zorder=1.5)
     ax.text(
         *fit_text_xy,
-        f"slope = {slope:.2f}\n$R^2$ = {r_squared:.2f}",
+        f"slope = {slope:.3f} ± {slope_se:.3f}\n"
+        f"R² = {fit.rsquared:.2f}\n{p_text}",
         transform=ax.transAxes,
         color="#4F4F4F",
         fontsize=7,
