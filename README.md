@@ -2,7 +2,7 @@
 
 This repository contains the Python scripts, plotting data, and map resources used to generate Figures 1-8 for the manuscript **"The Global Database of Deep-time Sedimentary Mercury Concentrations and Isotope Compositions (DeepSedHg)"**.
 
-DeepSedHg is a global compilation of published sedimentary mercury (Hg) concentrations and Hg isotope records spanning approximately 2.7 billion years of Earth history. Version 1.0 contains 28,264 sample-level records compiled from 199 peer-reviewed publications.
+DeepSedHg is a global compilation of published sedimentary mercury (Hg) concentrations and Hg isotope records spanning approximately 2.7 billion years of Earth history. Version 1.1 contains 28,264 sample-level records compiled from 199 peer-reviewed publications.
 
 ## Repository contents
 
@@ -65,9 +65,9 @@ python Figure8.py
 
 ## Dataset
 
-The full DeepSedHg v1.0 database is distributed separately through Zenodo:
+The full DeepSedHg v1.1 database is distributed separately through Zenodo:
 
-<https://doi.org/10.5281/zenodo.20713398>
+<https://doi.org/10.5281/zenodo.24100761>
 
 The figure-level Excel files in this repository contain only the processed plotting inputs required to reproduce the manuscript figures. The primary database should be obtained from Zenodo.
 
@@ -81,7 +81,7 @@ Scotese, C. R. (2021). An Atlas of Phanerozoic Paleogeographic Maps: The Seas Co
 
 When using this code, cite the associated manuscript and the DeepSedHg dataset. When using the underlying database, cite the dataset separately:
 
-Yang, Y., Li, S., Zheng, W., Liu, Y., Chen, J., and Sun, R. (2026). *DeepSedHg version 1.0: A global database of deep-time sedimentary mercury concentrations and isotope compositions*. Zenodo. <https://doi.org/10.5281/zenodo.20713398>
+Yang, Y., Li, S., Zheng, W., Liu, Y., Chen, J., and Sun, R. (2026). *DeepSedHg version 1.1: A global database of deep-time sedimentary mercury concentrations and isotope compositions*. Zenodo. <https://doi.org/10.5281/zenodo.24100761>
 
 ## Authors
 
